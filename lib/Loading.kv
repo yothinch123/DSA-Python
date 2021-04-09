@@ -1,0 +1,38 @@
+##:kivy ex [1, 1]
+
+#:import Factory kivy.factory.Factory
+#:import images_path kivymd.images_path
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<LoadingPage>:
+
+    progress_text: progress_text.__self__
+    progress_bar: progress_bar.__self__
+
+    cols: 1
+
+    MDLabel:
+
+    GridLayout:
+        cols: 1
+
+        halign: "center"
+        valign: "middle"
+        size: (root.width-200), 100
+        size_hint: 0.8, None
+
+        MDLabel:
+            id: progress_text
+            text: "Loading.."
+            halign: "center"
+            valign: "middle"
+            size: 800, 40
+            size_hint: 0.8, None
+
+        MDProgressBar:
+            id: progress_bar
+            value: 0
+            size: (root.width-200), 40
+            size_hint: 0.8, None
+
+    MDLabel:

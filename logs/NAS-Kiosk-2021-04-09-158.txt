@@ -1,0 +1,81 @@
+[INFO   ] Logger: Record log in d:\work\project\CPE-Cafe\logs\NAS-Kiosk-2021-04-09-158.txt
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Factory: 186 symbols loaded
+[INFO   ] KivyMD: v0.103.0
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL" graphics system
+[INFO   ] GL: GLEW initialization succeeded
+[INFO   ] GL: Backend used <glew>
+[INFO   ] GL: OpenGL version <b'4.6.14756 Compatibility Profile Context 20.40.32 27.20.14032.8'>
+[INFO   ] GL: OpenGL vendor <b'ATI Technologies Inc.'>
+[INFO   ] GL: OpenGL renderer <b'AMD Radeon(TM) Graphics'>
+[INFO   ] GL: OpenGL parsed version: 4, 6
+[INFO   ] GL: Shading version <b'4.60'>
+[INFO   ] GL: Texture max size <16384>
+[INFO   ] GL: Texture max units <32>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[INFO   ] GL: NPOT texture support is available
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\lang\builder.py", line 705, in _apply_rule
+[WARNING] stderr:     setattr(widget_set, key, value)
+[WARNING] stderr:   File "kivy\weakproxy.pyx", line 35, in kivy.weakproxy.WeakProxy.__setattr__
+[WARNING] stderr:   File "kivy\properties.pyx", line 498, in kivy.properties.Property.__set__
+[WARNING] stderr:   File "kivy\properties.pyx", line 1354, in kivy.properties.ReferenceListProperty.set
+[WARNING] stderr:   File "kivy\properties.pyx", line 1338, in kivy.properties.ReferenceListProperty.convert
+[WARNING] stderr: ValueError: MDRaisedButton.size must be a list or a tuple
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "d:/work/project/CPE-Cafe/CPE-Cafe.py", line 749, in <module>
+[WARNING] stderr:     CPECafe.run()
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\app.py", line 949, in run
+[WARNING] stderr:     self._run_prepare()
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\app.py", line 919, in _run_prepare
+[WARNING] stderr:     root = self.build()
+[WARNING] stderr:   File "d:/work/project/CPE-Cafe/CPE-Cafe.py", line 645, in build
+[WARNING] stderr:     self.screen_manager.add_widget(screen)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\screenmanager.py", line 997, in add_widget
+[WARNING] stderr:     self.current = screen.name
+[WARNING] stderr:   File "kivy\properties.pyx", line 498, in kivy.properties.Property.__set__
+[WARNING] stderr:   File "kivy\properties.pyx", line 545, in kivy.properties.Property.set
+[WARNING] stderr:   File "kivy\properties.pyx", line 600, in kivy.properties.Property.dispatch
+[WARNING] stderr:   File "kivy\_event.pyx", line 1248, in kivy._event.EventObservers.dispatch
+[WARNING] stderr:   File "kivy\_event.pyx", line 1154, in kivy._event.EventObservers._dispatch
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\screenmanager.py", line 1062, in on_current
+[WARNING] stderr:     screen.dispatch('on_enter')
+[WARNING] stderr:   File "kivy\_event.pyx", line 709, in kivy._event.EventDispatcher.dispatch
+[WARNING] stderr:   File "d:/work/project/CPE-Cafe/CPE-Cafe.py", line 392, in load_pages
+[WARNING] stderr:     CPECafe.register_policy_page = RegisterPolicyPage()
+[WARNING] stderr:   File "d:/work/project/CPE-Cafe/CPE-Cafe.py", line 469, in __init__
+[WARNING] stderr:     super().__init__(**kwargs)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\gridlayout.py", line 279, in __init__
+[WARNING] stderr:     super(GridLayout, self).__init__(**kwargs)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\layout.py", line 76, in __init__
+[WARNING] stderr:     super(Layout, self).__init__(**kwargs)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\widget.py", line 361, in __init__
+[WARNING] stderr:     rule_children=rule_children)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\uix\widget.py", line 465, in apply_class_lang_rules
+[WARNING] stderr:     rule_children=rule_children)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\lang\builder.py", line 543, in apply
+[WARNING] stderr:     rule_children=rule_children)
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\lang\builder.py", line 712, in _apply_rule
+[WARNING] stderr:     e), cause=tb)
+[WARNING] stderr: kivy.lang.builder.BuilderException: Parser: File "<inline>", line 113:
+[WARNING] stderr: ...
+[WARNING] stderr:     111:                        font_name: app.font_bold
+[WARNING] stderr:     112:                        font_size: '20dp' if Window.width > 1366 else '16dp'
+[WARNING] stderr: >>  113:                        size: 30
+[WARNING] stderr:     114:                        md_bg_color: .9, .1, .1, 1
+[WARNING] stderr:     115:
+[WARNING] stderr: ...
+[WARNING] stderr: ValueError: MDRaisedButton.size must be a list or a tuple
+[WARNING] stderr:   File "C:\Python\Python36\lib\site-packages\kivy\lang\builder.py", line 705, in _apply_rule
+[WARNING] stderr:     setattr(widget_set, key, value)
+[WARNING] stderr:   File "kivy\weakproxy.pyx", line 35, in kivy.weakproxy.WeakProxy.__setattr__
+[WARNING] stderr:   File "kivy\properties.pyx", line 498, in kivy.properties.Property.__set__
+[WARNING] stderr:   File "kivy\properties.pyx", line 1354, in kivy.properties.ReferenceListProperty.set
+[WARNING] stderr:   File "kivy\properties.pyx", line 1338, in kivy.properties.ReferenceListProperty.convert
+[WARNING] stderr: 

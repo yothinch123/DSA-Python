@@ -1,0 +1,9 @@
+[INFO   ] Logger: Record log in d:\work\project\CPE-Cafe\logs\NAS-Kiosk-2021-04-09-20.txt
+[INFO   ] deps: Successfully imported "kivy_deps.gstreamer" 0.3.2
+[INFO   ] deps: Successfully imported "kivy_deps.angle" 0.3.0
+[INFO   ] deps: Successfully imported "kivy_deps.glew" 0.3.0
+[INFO   ] deps: Successfully imported "kivy_deps.sdl2" 0.3.1
+[INFO   ] Kivy: v2.0.0
+[INFO   ] Kivy: Installed at "C:\Python\Python36\lib\site-packages\kivy\__init__.py"
+[INFO   ] Python: v3.6.8 (tags/v3.6.8:3c6b436a57, Dec 24 2018, 00:16:47) [MSC v.1916 64 bit (AMD64)]
+[INFO   ] Python: Interpreter at "C:\Python\Python36\python.exe"

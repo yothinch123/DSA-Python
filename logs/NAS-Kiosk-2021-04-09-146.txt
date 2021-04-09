@@ -1,0 +1,29 @@
+[INFO   ] Logger: Record log in d:\work\project\CPE-Cafe\logs\NAS-Kiosk-2021-04-09-146.txt
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Factory: 186 symbols loaded
+[INFO   ] KivyMD: v0.103.0
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL" graphics system
+[INFO   ] GL: GLEW initialization succeeded
+[INFO   ] GL: Backend used <glew>
+[INFO   ] GL: OpenGL version <b'4.6.14756 Compatibility Profile Context 20.40.32 27.20.14032.8'>
+[INFO   ] GL: OpenGL vendor <b'ATI Technologies Inc.'>
+[INFO   ] GL: OpenGL renderer <b'AMD Radeon(TM) Graphics'>
+[INFO   ] GL: OpenGL parsed version: 4, 6
+[INFO   ] GL: Shading version <b'4.60'>
+[INFO   ] GL: Texture max size <16384>
+[INFO   ] GL: Texture max units <32>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[INFO   ] GL: NPOT texture support is available
+[INFO   ] SmartCard: Add SmartCard observer
+[INFO   ] Base: Start application main loop
+[INFO   ] SmartCard: Reading data from SmartCard...
+[INFO   ] SmartCard: Screen - Home, Home
+[INFO   ] SmartCard: Connected and read data from SmartCard
+[INFO   ] SmartCard: Last Citizen=None
+[INFO   ] SmartCard: Citizen=1301601152014
+[INFO   ] CPECafeApp: SmartCard inserted
+[INFO   ] CPECafeApp: Open Register screen
+[INFO   ] Base: Leaving application in progress...

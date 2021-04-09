@@ -1,0 +1,77 @@
+##:kivy ex [1, 1]
+
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import images_path kivymd.images_path
+#:import Window kivy.core.window.Window
+
+<SettingPage>:
+
+    toolbar: toolbar.__self__
+    # smartcard_text: smartcard_text.__self__
+    # smartcard_image: smartcard_image.__self__
+
+    name: "Setting"
+
+    cols: 1
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'lib/resources/home_bg-1360x768.png'
+            #source: 'lib/resources/home_bg-768x1360.png'
+
+    MDToolbar:
+        id: toolbar
+        # title: app.title
+        title: 'CPE Cafe Setting'
+        pos_hint: {"top": 1}
+        md_bg_color: get_color_from_hex(colors['Blue']['200'])
+        background_palette: 'Green'
+        background_hue: '500'
+        font_size: '10dp'
+        right_action_items: [['window-close', lambda x: app.callback_home()], ['check', lambda x: app.callback_save()]]
+
+    BoxLayout:
+        # cols: 3
+        padding: [5]
+        spacing: 5
+
+        MDCard:
+            orientation: 'horizontal'
+            padding: '0dp'
+            halign: 'center'
+            valign: 'middle'
+            size_hint: None, None
+            size: "390dp", "160dp"
+            BoxLayout:
+                orientation: 'vertical'
+                MDLabel:
+                    text:'Ip Address :'
+                    halign:'center'
+                MDLabel:
+                    text:'Subnet Mask :'
+                    halign:'center'
+                MDLabel:
+                    text:'Gateway :'
+                    halign:'center'
+            BoxLayout:
+                orientation: 'vertical'
+                
+                MDTextField:
+                    id:ip
+                    text:''
+                    helper_text:'192.168.40.1-192.168.40.254'
+                    helper_text_mode: 'on_focus'
+                    hint_text:'ssssss'
+                MDTextField:
+                    id:netmask
+                    text:''
+                    helper_text:'255.255.255.0'
+                    helper_text_mode: 'on_focus'
+                MDTextField:
+                    id:gateway
+                    text:''
+                    helper_text_mode: 'on_focus'
+                    helper_text:'192.168.40.1'     
+

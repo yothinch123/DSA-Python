@@ -1,0 +1,124 @@
+##:kivy ex [1, 1]
+
+#:import Factory kivy.factory.Factory
+#:import images_path kivymd.images_path
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import ScrollView kivy.uix.scrollview
+
+<ScrollableLabel>:
+    MDLabel:
+        size_hint_y: None
+        height: self.texture_size[1]
+        text_size: root.width, None
+        text: root.text
+        font_name: root.font_name
+
+<RegisterPolicyPage>:
+
+    registration_policy: registration_policy.__self__
+
+    name: 'RegisterPolicy'
+
+    cols: 1
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'lib/resources/home_bg-1360x768.png'
+
+    MDToolbar:
+        id: toolbar
+        title: app.title
+        pos_hint: {'top': 1}
+        md_bg_color: get_color_from_hex(colors['Blue']['200'])
+        background_palette: 'Green'
+        background_hue: '500'
+        right_action_items: [['earth', lambda x: x], ['wifi', lambda x: x], ['shield-key', lambda x: x], ['settings', lambda x: x]]
+
+
+    #MDLabel:
+    #    text: 'Registration Policy Confirmation'
+    #    halign: 'center'
+    #    valign: 'middle'
+    #    size: root.width, 60
+    #    size_hint: None, None
+
+    GridLayout:
+        cols: 1
+        padding: [5]
+        spacing: 5
+        #size: root.width, 60
+
+        MDCard:
+            size_hint: 1, None
+            height: '42dp'
+            elevation: 0
+
+            BoxLayout:
+                id: account_student_registration_info
+                orientation: 'vertical'
+                padding: dp(10)
+
+                MDLabel:
+                    text: 'นโยบายและข้อตกลงการใช้'
+                    halign: 'center'
+                    valign: 'top'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    font_name: app.font_bold
+
+
+        MDCard:
+            elevation: 0
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: dp(14)
+                spacing: dp(14)
+
+                ScrollableLabel:
+                    id: registration_policy
+                    text: 'รายละเอียดเพิ่มเติม อยู่ในคู่มือด้านข้าง นะครับ'
+                    halign: 'center'
+                    multiline: True
+                    #readonly: True
+                    size_hint: 1, 1
+                    #height: self.minimum_height+dp(5)
+                    font_name: app.font_thin
+                    #text_size: [500, None]
+
+        MDCard:
+            size_hint: 1, None
+            height: '52dp'
+            elevation: 0
+
+            BoxLayout:
+                orientation: 'vertical'
+                padding: dp(8)
+                spacing: dp(14)
+
+                BoxLayout:
+                    cols: 2
+                    spacing: dp(14)
+                    #height: 400
+                    orientation: 'horizontal'
+                
+                    MDRaisedButton:
+                        id: account_policy_refuse
+                        text: '"ไม่" ยอมรับข้อตกลง'
+                        size_hint: None, None
+                        on_press: root.account_creation_not_accept_click_callback()
+                        font_name: app.font_bold
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+                        
+                        md_bg_color: .9, .1, .1, 1
+
+                    MDRaisedButton:
+                        id: account_policy_accept
+                        text: 'ยอมรับข้อตกลง'
+                        size_hint: None, None
+                        on_press: root.account_creation_accept_click_callback()
+                        font_name: app.font_bold
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+                        md_bg_color: .2, .8, .2, 1

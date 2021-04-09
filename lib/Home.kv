@@ -1,0 +1,61 @@
+##:kivy ex [1, 1]
+
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import images_path kivymd.images_path
+#:import Window kivy.core.window.Window
+
+<HomePage>:
+
+    toolbar: toolbar.__self__
+    smartcard_text: smartcard_text.__self__
+    smartcard_image: smartcard_image.__self__
+
+    name: "Home"
+
+    cols: 1
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'lib/resources/home_bg-1360x768.png'
+            #source: 'lib/resources/home_bg-768x1360.png'
+
+    MDToolbar:
+        id: toolbar
+        title: app.title
+        pos_hint: {"top": 1}
+        md_bg_color: get_color_from_hex(colors['Blue']['200'])
+        background_palette: 'Green'
+        background_hue: '500'
+        font_size: '10dp'
+        right_action_items: [['earth', lambda x: app.callback_earthe()], ['wifi', lambda x: app.callback_wifi()], ['shield-key', lambda x: app.callback_key()], ['settings', lambda x: app.callback_setting()]]
+
+    BoxLayout:
+        cols: 2
+        padding: [5]
+        spacing: 5
+
+        MDCard:
+            orientation: "vertical"
+            #orientation: "vertical"
+            #padding: "18dp"
+            #size_hint: None, None
+            #size: "280dp", "180dp"
+            padding: [20]
+            elevation: 0
+
+            MDLabel:
+                id: smartcard_text
+                #text: "PleasPlease insert your Citizen Card"
+                text: "กรุณาเสียบบัตรประจำตัวประชาชน"
+                halign: "center"
+                valign: "middle"
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_name: app.font_regular
+                font_size: '20dp' if Window.width > 1366 else '16dp'
+            Image:
+                id: smartcard_image
+                source: 'lib/resources/insert_credit_card2_512px.png'
+

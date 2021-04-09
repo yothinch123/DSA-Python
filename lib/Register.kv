@@ -1,0 +1,301 @@
+##:kivy ex [1, 1]
+
+#:import Factory kivy.factory.Factory
+#:import images_path kivymd.images_path
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Window kivy.core.window.Window
+
+<RegisterPage>:
+
+    register_student: register_student.__self__
+    register_staff: register_staff.__self__
+
+    account_type_select: account_type_select.__self__
+    account_type_text: account_type_text.__self__
+
+    account_student_registration_info: account_student_registration_info.__self__
+    account_staff_registration_info: account_staff_registration_info.__self__
+
+    account_student_registration_start: account_student_registration_start.__self__
+    account_staff_registration_start: account_staff_registration_start.__self__
+
+    name: 'Register'
+
+    cols: 1
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'lib/resources/home_bg-1360x768.png'
+
+    MDToolbar:
+        id: toolbar
+        title: app.title
+        pos_hint: {'top': 1}
+        md_bg_color: get_color_from_hex(colors['Blue']['200'])
+        background_palette: 'Green'
+        background_hue: '500'
+        right_action_items: [['earth', lambda x: x], ['wifi', lambda x: x], ['shield-key', lambda x: x], ['settings', lambda x: x]]
+
+
+    MDLabel:
+        #text: 'Register a new account'
+        text: "สมัครขอรับบัญชี\nกรุณาเลือกประเภทบัญชี หรือถอดบัตรประจำตัวประชาชนออกเพื่อสิ้นสุดการดำเนินการ"
+        halign: 'center'
+        valign: 'middle'
+        size: root.width, 64
+        size_hint: None, None
+        font_name: app.font_regular
+        font_size: '20dp' if Window.width > 1366 else '16dp'
+
+    BoxLayout:
+        cols: 2
+        padding: [20]
+        spacing: 20
+
+        MDCard:
+            #orientation: 'vertical'
+            size_hint: 1.4, 1
+            #size: '280dp', '180dp'
+            elevation: 0
+
+            #Camera:
+            #    id: camera
+            #    resolution: (640, 480)
+            #    play: True
+
+            BoxLayout:
+                cols: 2
+                padding: [22]
+                spacing: 28
+                #pos_hint: {'center_x': .5, 'center_y': .5}
+
+                MDCardButton:
+                    id: register_student
+                    orientation: 'vertical'
+                    #padding: '18dp'
+                    #size_hint: None, None
+                    #size: '185dp', '200dp'
+                    padding: [16]
+                    #pos_hint: {'center_x': .5, 'center_y': .5}
+                    elevation: 11
+                    on_enter: root.register_student_enter_callback()
+                    on_leave: root.register_student_leave_callback()
+                    on_press: root.register_student_click_callback()
+
+                    Image:
+                        source: 'lib/resources/student_registration.jpg'
+
+                    MDLabel:
+                        #text: 'Student'
+                        text: 'นักศึกษา'
+                        halign: 'center'
+                        valign: 'top'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        font_name: app.font_regular
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+
+                MDCardButton:
+                    id: register_staff
+                    orientation: 'vertical'
+                    #padding: '18dp'
+                    #size_hint: None, None
+                    #size: '185dp', '200dp'
+                    padding: [16]
+                    #pos_hint: {'center_x': .5, 'center_y': .5}
+                    elevation: 11
+                    on_enter: root.register_staff_enter_callback()
+                    on_leave: root.register_staff_leave_callback()
+                    on_press: root.register_staff_click_callback()
+
+                    Image:
+                        source: 'lib/resources/staff_registration.jpg'
+
+                    MDLabel:
+                        #text: 'Staff'
+                        text: 'บุคลากร'
+                        halign: 'center'
+                        valign: 'top'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        font_name: app.font_regular
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+
+        MDCard:
+            id: account_type_select
+            #orientation: 'vertical'
+            #size_hint: None, None
+            #size: '280dp', '180dp'
+            elevation: 0
+
+            MDLabel:
+                id: account_type_text
+                #text: 'Please select account type'
+                text: 'กรุณาเลือกประเภทบัญชี'
+                halign: 'center'
+                valign: 'middle'
+                font_name: app.font_bold
+                font_size: '20dp' if Window.width > 1366 else '16dp'
+
+            BoxLayout:
+                id: account_student_registration_info
+                orientation: 'vertical'
+                padding: dp(14)
+                spacing: dp(0)
+
+                MDLabel:
+                    #text: 'Your Personal Information'
+                    text: 'ข้อมูลในบัตรประจำตัวประชาชน'
+                    halign: 'center'
+                    valign: 'top'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    font_name: app.font_bold
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_student_registration_citizen
+                    #hint_text: 'Citizen ID'
+                    hint_text: 'เลขประจำตัวประชาชน'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_student_registration_full_name_en
+                    hint_text: 'Full Name'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_student_registration_full_name_th
+                    hint_text: 'ชื่อ - สกุล'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_student_registration_code
+                    hint_text: 'รหัสนักศึกษา'
+                    helper_text: "ตัวอย่าง: 62172150908-8"
+                    helper_text_mode: "persistent"
+                    text: ''
+                    write_tab: False
+                    required: True
+                    min_text_length: 13
+                    size_hint: 1, None
+                    #padding: dp(0)
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDDropDownItem:
+                    id: account_student_registration_campus
+                    hint_text: 'วิทยาเขต'
+                    items: app.campuses
+                    size_hint: 1, None
+                    padding: dp(0), dp(10), 0, 0
+                    height: self.minimum_height+dp(8)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                    dropdown_width_mult: 3
+                    dropdown_bg: [1, 1, 1, 1]
+
+                BoxLayout:
+                    padding: dp(8)
+
+                    MDRaisedButton:
+                        id: account_student_registration_start
+                        #text: 'Continue'
+                        text: 'ดำเนินการต่อ'
+                        #size_hint: 1, None
+                        on_press: root.register_student_start_click_callback()
+                        font_name: app.font_bold
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+
+            BoxLayout:
+                id: account_staff_registration_info
+                orientation: 'vertical'
+                padding: dp(14)
+                spacing: dp(0)
+
+                MDLabel:
+                    #text: 'Your Personal Information'
+                    text: 'ข้อมูลในบัตรประจำตัวประชาชน'
+                    halign: 'center'
+                    valign: 'top'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    font_name: app.font_bold
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_staff_registration_citizen
+                    hint_text: 'เลขประจำตัวประชาชน'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_staff_registration_full_name_en
+                    hint_text: 'Full Name'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDTextField:
+                    id: account_staff_registration_full_name_th
+                    hint_text: 'ชื่อ - สกุล'
+                    text: ''
+                    write_tab: False
+                    readonly: True
+                    size_hint: 1, None
+                    height: self.minimum_height+dp(2)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                MDDropDownItem:
+                    id: account_staff_registration_campus
+                    hint_text: 'วิทยาเขต'
+                    items: app.campuses
+                    size_hint: 1, None
+                    padding: dp(0), dp(10), 0, 0
+                    height: self.minimum_height+dp(8)
+                    font_name: app.font_regular
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+                    dropdown_width_mult: 3
+                    dropdown_bg: [1, 1, 1, 1]
+
+                BoxLayout:
+                    padding: dp(8)
+
+                    MDRaisedButton:
+                        id: account_staff_registration_start
+                        #text: 'Continue'
+                        text: 'ดำเนินการต่อ'
+                        #size_hint: 1, None
+                        on_press: root.register_staff_start_click_callback()
+                        font_name: app.font_bold
+                        font_size: '20dp' if Window.width > 1366 else '16dp'
+
+    MDLabel:
+        text: app.footer_text
+        halign: 'center'
+        valign: 'middle'
+        size: root.width, 60
+        size_hint: None, None
+        font_name: app.font_thin

@@ -1,0 +1,73 @@
+##:kivy ex [1, 1]
+
+#:import Factory kivy.factory.Factory
+#:import images_path kivymd.images_path
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import ScrollView kivy.uix.scrollview
+#:import Window kivy.core.window.Window
+
+<FinishPage>:
+
+    name: 'Finish'
+
+    cols: 1
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'lib/resources/home_bg-1360x768.png'
+
+    MDToolbar:
+        id: toolbar
+        title: app.title
+        pos_hint: {'top': 1}
+        md_bg_color: get_color_from_hex(colors['Blue']['200'])
+        background_palette: 'Green'
+        background_hue: '500'
+        right_action_items: [['earth', lambda x: x], ['wifi', lambda x: x], ['shield-key', lambda x: x], ['settings', lambda x: x]]
+
+    GridLayout:
+        cols: 1
+        padding: [20]
+        spacing: 10
+
+        MDCard:
+            id: account_type_select
+            elevation: 0
+
+            BoxLayout:
+                id: account_student_registration_info
+                orientation: 'vertical'
+                padding: dp(14)
+                spacing: dp(14)
+
+                MDLabel:
+                    text: 'สิ้นสุดการดำเนินการ'
+                    halign: 'center'
+                    valign: 'top'
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_name: app.font_bold
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+
+                MDLabel:
+                    text: 'ขอบคุณที่ใช้บริการ เครื่องบริการบัญชีสมาชิกอินเทอร์เน็ต มทร.อีสาน'
+                    halign: 'center'
+                    valign: 'top'
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_name: app.font_bold
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
+
+                MDLabel:
+                    text: 'กรุณาถอดบัตรประจำตัวประชาชนออก\nเพื่อสิ้นสุดการดำเนินการ'
+                    halign: 'center'
+                    valign: 'top'
+                    #size_hint_y: None
+                    #height: self.texture_size[1]
+                    pos_hint: {'center_x': .5, 'center_y': .5}
+                    font_name: app.font_bold
+                    font_size: '20dp' if Window.width > 1366 else '16dp'
